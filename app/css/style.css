@@ -18,6 +18,10 @@
   font-family: SansSerif;
   src: url(../fonts/MicrosoftSansSerif.ttf); }
 
+@font-face {
+  font-family: GothamProLight;
+  src: url(../fonts/GothamProLight.ttf); }
+
 * {
   margin: 0;
   padding: 0;
@@ -26,33 +30,13 @@
 
 html {
   height: 100%; }
-  @media (max-width: 1360px) {
-    html {
-      font-size: 16px; } }
-  @media (max-width: 1200px) {
-    html {
-      font-size: 15px; } }
-  @media (max-width: 768px) {
-    html {
-      font-size: 14px; } }
-  @media (max-width: 480px) {
-    html {
-      font-size: 14px; } }
 
 body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1.35;
-  font-family: 'Helvetica';
-  font-weight: 300;
-  font-style: normal; }
-
-.site-wrapper {
-  position: relative;
-  height: 100%;
-  width: 100%; }
+  line-height: 1.35; }
 
 ul {
   padding: 0;
@@ -70,6 +54,38 @@ p {
 .header-logo {
   padding-top: 40px;
   padding-bottom: 40px; }
+  @media (max-width: 768px) {
+    .header-logo {
+      padding-bottom: 10px; } }
+
+@media (max-width: 768px) {
+  .center-image {
+    text-align: center; } }
+
+.center-h1 {
+  font-family: 'BigNoodleTitlingCyr';
+  font-size: 56px;
+  padding-top: 20px; }
+  @media (max-width: 1200px) {
+    .center-h1 {
+      font-size: 46px; } }
+
+.center-h2 {
+  font-family: 'BigNoodleTitlingCyr';
+  border-bottom: none;
+  font-size: 56px;
+  text-align: left;
+  padding-top: 0px;
+  margin-bottom: 10px; }
+  @media (max-width: 1200px) {
+    .center-h2 {
+      font-size: 46px; } }
+  @media (max-width: 768px) {
+    .center-h2 {
+      text-align: center; } }
+
+.center-span {
+  font-family: 'GothamProRegular'; }
 
 @media (max-width: 768px) {
   .row-header {
@@ -87,17 +103,41 @@ p {
 .header-text {
   font-family: 'SansSerif';
   font-size: 18px; }
+  @media (max-width: 992px) {
+    .header-text {
+      text-align: center; } }
+  @media (max-width: 768px) {
+    .header-text {
+      border-bottom: 1px solid #000;
+      padding-bottom: 10px; } }
+
+@media (max-width: 768px) {
+  .header-img {
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px; } }
 
 .telephone {
-  font-family: Arial, sans-serif;
+  font-family: 'SansSerif';
   font-size: 30px;
   text-align: center;
   height: 30px; }
+  @media (max-width: 992px) {
+    .telephone {
+      font-size: 19px; } }
+  @media (max-width: 768px) {
+    .telephone {
+      font-size: 30px; } }
 
 .phone-descr {
   font-family: 'SansSerif';
   font-size: 15px;
   text-align: center; }
+
+@media (max-width: 768px) {
+  .col-menu {
+    position: absolute;
+    right: 20px;
+    top: 0px; } }
 
 @media (max-width: 768px) {
   .col-center {
@@ -109,6 +149,7 @@ p {
   margin: 0 auto;
   max-width: 40px; }
 
+/* FULLMENU */
 input[type="checkbox"]#togglebox {
   /* checkbox used to toggle menu state */
   position: absolute;
@@ -117,15 +158,19 @@ input[type="checkbox"]#togglebox {
   visibility: hidden; }
 
 label#navtoggler {
+  /* Main label icon to toggle menu state */
   z-index: 9;
   display: block;
   position: relative;
-  font-size: 3px;
-  width: 40px;
-  height: 30px;
+  font-size: 8px;
+  /* change font size to change label dimensions. Leave width/height below alone */
+  width: 4em;
+  height: 2.5em;
   top: 0;
   left: 0;
-  border: 0.6em solid #000;
+  text-indent: -1000px;
+  border: 0.6em solid black;
+  /* border color */
   border-width: 0.6em 0;
   cursor: pointer; }
   label#navtoggler::before {
@@ -138,7 +183,7 @@ label#navtoggler {
     top: 50%;
     margin-top: -0.3em;
     left: 0;
-    background: #000;
+    background: black;
     /* stripes background color. Change to match border color of parent label above */ }
 
 nav#expand-fullpagemenu {
@@ -154,10 +199,10 @@ nav#expand-fullpagemenu {
   /* initially scale down nav size */
   -ms-transform: scale(0.9);
       transform: scale(0.9);
-  background: #cc1000;
+  background: #AAEDEA;
   display: block;
   position: fixed;
-  z-index: 5002;
+  z-index: 100;
   opacity: 0;
   text-align: center;
   overflow: auto;
@@ -181,15 +226,16 @@ input[type="checkbox"]#togglebox:checked ~ nav#expand-fullpagemenu {
 
 nav#expand-fullpagemenu label#closex {
   /* Large x close button inside nav */
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
   display: block;
-  width: 24px;
-  height: 24px;
   position: absolute;
-  top: 20px;
-  right: 20px;
-  opacity: 0.7;
+  cursor: pointer;
+  text-indent: -1000px;
   z-index: 10;
-  cursor: pointer; }
+  top: 0;
+  right: 0; }
   nav#expand-fullpagemenu label#closex::before {
     /* render large cross inside close button */
     content: "";
@@ -226,7 +272,7 @@ nav#expand-fullpagemenu label#closex::after {
 
 nav#expand-fullpagemenu a {
   text-decoration: none;
-  color: #fff;
+  color: black;
   text-transform: uppercase; }
 
 nav#expand-fullpagemenu ul {
@@ -241,33 +287,51 @@ nav#expand-fullpagemenu ul {
   /* center UL vertically inside nav */
   -ms-transform: translateY(-50%);
       transform: translateY(-50%);
-  font: 18px/22px 'Open Sans';
+  font: bold 2em 'Bitter', sans-serif;
   /* use google font inside nav UL */ }
   nav#expand-fullpagemenu ul li {
-    margin-bottom: 25px;
-    display: inline-block;
-    vertical-align: top; }
+    margin-bottom: 25px; }
     nav#expand-fullpagemenu ul li a {
       padding: 10px;
       -webkit-border-radius: 20px;
               border-radius: 20px; }
-      nav#expand-fullpagemenu ul li a:hover, nav#expand-fullpagemenu ul li a:active {
-        color: #ffbf00; }
+      nav#expand-fullpagemenu ul li a:hover {
+        background: lightblue; }
 
+.span {
+  display: none; }
+
+/* FULLMENU END */
 .header-center {
-  background: #e4eef0; }
+  background: #e4eef0;
+  padding-bottom: 20px; }
+  @media (max-width: 768px) {
+    .header-center {
+      margin-bottom: 50px;
+      padding-bottom: 0px; } }
 
-.img-responsive {
-  max-width: 100%; }
+@media (max-width: 768px) {
+  .img-header {
+    width: 100%; } }
 
 .center-content {
-  width: 392px;
   border: 5px solid #edeff0;
-  margin: 0 auto;
-  margin-top: 30px; }
+  padding: 10px;
+  margin-bottom: 15px; }
+  @media (max-width: 768px) {
+    .center-content {
+      display: none; } }
+
+.center {
+  border: 5px solid #edeff0;
+  padding: 10px;
+  margin-bottom: 15px; }
+  @media (max-width: 768px) {
+    .center {
+      border: none; } }
 
 .content-item {
-  padding-right: 0px; }
+  border-right: 1px solid #c1c1c4; }
 
 .item-pic {
   text-align: center;
@@ -275,7 +339,7 @@ nav#expand-fullpagemenu ul {
   height: 50px; }
 
 .item-text {
-  font-family: 'GothamProRegular';
+  font-family: 'GothamProLight';
   font-size: 18px;
   color: #616163;
   text-align: center; }
@@ -283,12 +347,28 @@ nav#expand-fullpagemenu ul {
 .center-description {
   text-align: center; }
   .center-description p {
-    font-family: 'GothamProRegular';
+    font-family: 'GothamProLight';
     font-size: 18px; }
-  .center-description span {
-    color: #46494b;
-    text-decoration: line-through;
-    font-weight: 600; }
+  @media (max-width: 768px) {
+    .center-description {
+      display: none; } }
+
+.up {
+  color: #46494b;
+  text-decoration: line-through;
+  font-weight: 600; }
+
+.two span {
+  font-size: 23px; }
+
+.down {
+  font-weight: 600; }
+
+.description {
+  text-align: center; }
+  .description p {
+    font-family: 'GothamProLight';
+    font-size: 18px; }
 
 .two {
   color: #ca2828; }
@@ -300,14 +380,26 @@ nav#expand-fullpagemenu ul {
   color: #fff;
   font-weight: bold;
   font-size: 28px;
-  -webkit-border-radius: 4px;
-          border-radius: 4px; }
+  -webkit-border-radius: 6px;
+          border-radius: 6px;
+  cursor: pointer; }
+  .btn:hover {
+    background: url(../img/knopka.png) no-repeat;
+    color: transparent; }
   .btn_bottom {
     width: 224px;
     height: 55px;
     font-size: 20px; }
 
 /* HEADER END */
+@media (max-width: 1920px) {
+  .hidden {
+    display: none; } }
+
+@media (max-width: 768px) {
+  .hidden {
+    display: block; } }
+
 /* SECOND SECTION */
 .second {
   background: url(../img/calvin-3.png) no-repeat;
@@ -318,9 +410,16 @@ nav#expand-fullpagemenu ul {
 
 .img-left {
   margin-left: 20%; }
+  @media (max-width: 992px) {
+    .img-left {
+      margin-left: 0px;
+      width: 100%; } }
+
+.img-right {
+  width: 100%; }
 
 h2 {
-  font-family: 'GothamProRegular';
+  font-family: 'GothamProLight';
   text-align: center;
   font-size: 26px;
   padding-top: 50px;
@@ -329,11 +428,19 @@ h2 {
   margin-bottom: 70px; }
 
 h3 {
-  font-family: 'GothamProRegular';
+  font-family: 'GothamProLight';
   font-size: 26px; }
+  h3 span {
+    font-weight: 600; }
 
 .second-center {
   text-align: center; }
+  @media (max-width: 992px) {
+    .second-center {
+      margin-bottom: 20px; } }
+  @media (max-width: 768px) {
+    .second-center {
+      margin-bottom: 80px; } }
   .second-center img {
     height: 160px;
     margin-bottom: 15px; }
@@ -356,13 +463,13 @@ h3 {
       background: #fff; } }
 
 .brand {
-  font-family: 'GothamProRegular';
+  font-family: 'GothamProLight';
   font-weight: 600;
   font-size: 26px;
   margin-bottom: 55px; }
 
 .brand-descr {
-  font-family: 'GothamProRegular';
+  font-family: 'GothamProLight';
   font-size: 26px;
   margin-bottom: 55px; }
 
@@ -370,6 +477,14 @@ h3 {
 /* FOURTH SECTION */
 .fourth {
   margin-bottom: 50px; }
+
+@media (max-width: 992px) {
+  .opinion {
+    margin-bottom: 30px; } }
+
+@media (max-width: 768px) {
+  .opinion-left {
+    margin-left: 10%; } }
 
 @media (max-width: 768px) {
   .opinion-flex {
@@ -404,11 +519,21 @@ h3 {
   font-size: 20px;
   font-weight: 600;
   font-style: italic; }
+  @media (max-width: 768px) {
+    .opinion-text p {
+      text-align: center; } }
 
 /* FOURTH SECTION END*/
 /* FIFTH SECTION */
 .fifth {
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  background: url(../img/mail.png) no-repeat;
+  background-position-x: 110%;
+  background-position-y: bottom;
+  min-height: 500px; }
+  @media (max-width: 992px) {
+    .fifth {
+      background: #fff; } }
 
 .delivery {
   display: -webkit-box;
@@ -425,18 +550,31 @@ h3 {
   font-size: 16px;
   margin-bottom: 8px; }
 
+@media (max-width: 768px) {
+  .img-none-768 {
+    display: none; } }
+
+.img-block-768 {
+  display: none; }
+  @media (max-width: 768px) {
+    .img-block-768 {
+      display: block;
+      height: 150px; } }
+
 /* FIFTH SECTION END */
 /* SIXTH SECTION */
 .sixth {
   margin-bottom: 50px;
   border-bottom: 3px solid #000; }
+  @media (max-width: 768px) {
+    .sixth {
+      border-bottom: none; } }
 
-.form span {
-  text-align: center;
-  font-family: 'SansSerif';
-  font-size: 16px; }
+.six {
+  font-size: 33px;
+  border-bottom: none; }
 
-.inputs {
+.form {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -445,28 +583,65 @@ h3 {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
-          flex-direction: column;
-  width: 90%;
-  margin: 0 auto; }
-  .inputs input {
-    width: 237px;
+          flex-direction: column; }
+  .form input {
     height: 35px;
     margin-bottom: 17px;
     font-family: 'SansSerif';
     font-size: 13px;
     color: #828282;
-    padding-left: 10px; }
+    padding-left: 10px;
+    outline: none;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    border: none;
+    -webkit-box-shadow: 3px 6px 5px -2px #d9d2d9;
+            box-shadow: 3px 6px 5px -2px #d9d2d9;
+    background: #ededed; }
+    .form input:focus {
+      border: 2px solid #50524f; }
+  .form span {
+    text-align: center;
+    font-family: 'SansSerif';
+    font-size: 16px; }
+
+.btn-form {
+  text-align: center; }
+
+.complects {
+  font-family: 'SansSerif';
+  font-size: 30px;
+  font-weight: 300; }
+  .complects span {
+    font-weight: 600; }
 
 /* SIXTH SECTION END*/
 /* FOOTER */
+.contacts {
+  text-align: center; }
+
 .confidential {
   font-family: 'SansSerif';
   font-size: 10px; }
+  @media (max-width: 768px) {
+    .confidential {
+      margin-bottom: 20px; } }
+
+@media (max-width: 768px) {
+  .footer-last {
+    margin-bottom: 20px; } }
 
 .footer-tel {
   font-family: 'SansSerif';
+  font-weight: 600;
   font-size: 37px; }
+  @media (max-width: 992px) {
+    .footer-tel {
+      font-size: 28px; } }
 
 .footer-email {
-  font-family: 'GothamProRegular';
+  font-family: 'GothamProLight';
   font-size: 18px; }
+  @media (max-width: 992px) {
+    .footer-email {
+      font-size: 14px; } }

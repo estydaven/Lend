@@ -25,6 +25,10 @@
     src: url(../fonts/MicrosoftSansSerif.ttf);
 }
 
+@font-face {
+    font-family: GothamProLight; 
+    src: url(../fonts/GothamProLight.ttf);
+}
 
 * {
   margin: 0;
@@ -33,20 +37,7 @@
 }
 
 html{
-  height: 100%;
-
-  @include desktop{
-    font-size: 16px;
-  }
-  @include laptop{
-    font-size: 15px;
-  }
-  @include tablets{
-    font-size: 14px;
-  }
-  @include phones{
-    font-size: 14px;
-  }
+  height: 100%;  
 }
 
 body{
@@ -54,17 +45,7 @@ body{
   width: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1.35;
-  font-family: 'Helvetica';
-  font-weight: 300;
-  font-style: normal;
-}
-
-
-.site-wrapper{
-  position: relative;
-  height: 100%;
-  width: 100%;
+  line-height: 1.35;  
 }
 
 ul{
@@ -88,6 +69,47 @@ p{
 .header-logo{
     padding-top: 40px;
     padding-bottom: 40px;
+
+    @include tablets{
+        padding-bottom: 10px;
+    }
+}
+
+.center-image{
+    @include tablets{
+        text-align: center;
+    }
+}
+
+.center-h1{
+    font-family: 'BigNoodleTitlingCyr';
+    font-size: 56px;
+    padding-top: 20px;
+
+    @include laptop{
+        font-size: 46px;
+    }
+}
+
+.center-h2{
+    font-family: 'BigNoodleTitlingCyr';
+    border-bottom: none;
+    font-size: 56px;
+    text-align: left;
+    padding-top: 0px;
+    margin-bottom: 10px;
+
+    @include laptop{
+        font-size: 46px;
+    }
+
+    @include tablets{
+        text-align: center;
+    }
+}
+
+.center-span{
+    font-family: 'GothamProRegular';    
 }
 
 .row-header{
@@ -103,19 +125,52 @@ p{
 .header-text{
     font-family: 'SansSerif';
     font-size: 18px;
+
+    @include lap{
+        text-align: center;
+    }
+
+     @include tablets{
+        border-bottom: 1px solid #000;
+        padding-bottom: 10px;        
+    }
+}
+
+.header-img{
+
+    @include tablets{
+        border-bottom: 1px solid #000;
+        padding-bottom: 10px;        
+    }
 }
 
 .telephone{
-    font-family: Arial, sans-serif;
+    font-family: 'SansSerif';
     font-size: 30px;
     text-align: center;
     height: 30px;
+
+    @include lap{
+        font-size: 19px;
+    }
+
+    @include tablets{
+        font-size: 30px;
+    }
 }
 
 .phone-descr{
     font-family: 'SansSerif';
     font-size: 15px;
     text-align: center;
+}
+
+.col-menu{
+    @include tablets{
+        position: absolute;
+        right: 20px;
+        top: 0px;
+    }
 }
 
 .col-center{
@@ -132,6 +187,8 @@ p{
     max-width: 40px;
 }
 
+/* FULLMENU */
+
 input[type="checkbox"]#togglebox {
   /* checkbox used to toggle menu state */
   position: absolute;
@@ -141,15 +198,19 @@ input[type="checkbox"]#togglebox {
 }
 
 label#navtoggler {
+  /* Main label icon to toggle menu state */
   z-index: 9;
   display: block;
   position: relative;
-  font-size: 3px;
-  width: 40px;
-  height: 30px;
+  font-size: 8px;
+  /* change font size to change label dimensions. Leave width/height below alone */
+  width: 4em;
+  height: 2.5em;
   top: 0;
   left: 0;
-  border: 0.6em solid #000;
+  text-indent: -1000px;
+  border: 0.6em solid black;
+  /* border color */
   border-width: 0.6em 0;
   cursor: pointer;
   &::before {
@@ -162,7 +223,7 @@ label#navtoggler {
     top: 50%;
     margin-top: -0.3em;
     left: 0;
-    background: #000;
+    background: black;
     /* stripes background color. Change to match border color of parent label above */
   }
 }
@@ -180,10 +241,10 @@ nav#expand-fullpagemenu {
   -webkit-transform: scale(0.9);
   /* initially scale down nav size */
   transform: scale(0.9);
-  background: #cc1000;
+  background: #AAEDEA;
   display: block;
   position: fixed;
-  z-index: 5002;
+  z-index: 100;
   opacity: 0;
   text-align: center;
   overflow: auto;
@@ -208,15 +269,16 @@ input[type="checkbox"]#togglebox:checked ~ nav#expand-fullpagemenu {
 nav {
   &#expand-fullpagemenu label#closex {
     /* Large x close button inside nav */
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
     display: block;
-    width: 24px;
-    height: 24px;
     position: absolute;
-    top: 20px;
-    right: 20px;
-    opacity: 0.7;
-    z-index: 10;
     cursor: pointer;
+    text-indent: -1000px;
+    z-index: 10;
+    top: 0;
+    right: 0;
     &::before {
       /* render large cross inside close button */
       content: "";
@@ -255,7 +317,7 @@ nav {
     }
     a {
       text-decoration: none;
-      color: #fff;
+      color: black;
       text-transform: uppercase;
     }
     ul {
@@ -269,17 +331,15 @@ nav {
       -webkit-transform: translateY(-50%);
       /* center UL vertically inside nav */
       transform: translateY(-50%);
-      font: 18px/22px 'Open Sans';
+      font: bold 2em 'Bitter', sans-serif;
       /* use google font inside nav UL */
       li {
         margin-bottom: 25px;
-        display: inline-block;
-        vertical-align: top;
         a {
           padding: 10px;
           border-radius: 20px;
-          &:hover, &:active {
-            color: #ffbf00;
+          &:hover {
+            background: lightblue;
           }
         }
       }
@@ -287,23 +347,49 @@ nav {
   }
 }
 
+.span{
+    display: none;
+}
+
+/* FULLMENU END */
+
 .header-center{
-    background: #e4eef0;
+    background: #e4eef0;   
+    padding-bottom: 20px; 
+    @include tablets{
+        margin-bottom: 50px;
+        padding-bottom: 0px; 
+    }
 }
 
-.img-responsive{
-    max-width: 100%;
+.img-header{
+    @include tablets{
+        width: 100%;
+    }
 }
 
-.center-content{
-    width: 392px;
+.center-content{    
     border: 5px solid #edeff0;
-    margin: 0 auto;
-    margin-top: 30px;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    @include tablets{
+        display: none;
+    }
+}
+
+.center{
+    border: 5px solid #edeff0;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    @include tablets{
+        border: none;
+    }
 }
 
 .content-item{
-    padding-right: 0px;
+    border-right: 1px solid #c1c1c4;
 } 
 
 .item-pic{
@@ -313,7 +399,7 @@ nav {
 }
 
 .item-text{
-    font-family: 'GothamProRegular';
+    font-family: 'GothamProLight';
     font-size: 18px;
     color: #616163;
     text-align: center;
@@ -323,15 +409,41 @@ nav {
     text-align: center;
 
     p{
-        font-family: 'GothamProRegular';
+        font-family: 'GothamProLight';
         font-size: 18px;        
+    }    
+
+    @include tablets{
+        display: none;
+    }
+}
+
+.up{
+    color: #46494b;
+    text-decoration: line-through;
+    font-weight: 600;
     }
 
-    span{
-        color: #46494b;
-        text-decoration: line-through;
+    .two{
+
+        span{
+           font-size: 23px; 
+           
+        }
+    }
+
+    .down{
         font-weight: 600;
     }
+
+.description{
+    text-align: center;
+
+    p{
+        font-family: 'GothamProLight';
+        font-size: 18px;        
+    }
+   
 }
 
 .two{
@@ -345,7 +457,13 @@ nav {
     color: #fff;
     font-weight: bold;
     font-size: 28px;
-    border-radius: 4px;
+    border-radius: 6px;
+    cursor: pointer; 
+
+    &:hover{
+        background: url(../img/knopka.png) no-repeat;
+        color: transparent;
+    }
 
     &_bottom{
         width: 224px;
@@ -355,6 +473,17 @@ nav {
 }
 
 /* HEADER END */
+
+.hidden{
+
+    @include big-desktop{
+        display: none;
+    }
+
+    @include tablets{
+        display: block;
+    }
+}
 
 /* SECOND SECTION */
 
@@ -369,10 +498,20 @@ nav {
 
 .img-left{
     margin-left: 20%;
+    
+
+    @include lap{
+        margin-left: 0px;
+        width: 100%;
+    }
+}
+
+.img-right{
+    width: 100%;
 }
 
 h2{
-    font-family: 'GothamProRegular';
+    font-family: 'GothamProLight';
     text-align: center;
     font-size: 26px;
     padding-top: 50px;
@@ -382,12 +521,24 @@ h2{
 }
 
 h3{
-    font-family: 'GothamProRegular';    
+    font-family: 'GothamProLight';    
     font-size: 26px;
+
+    span{
+        font-weight: 600;
+    }
 }
 
 .second-center{
     text-align: center;
+
+    @include lap{
+        margin-bottom: 20px;
+    }
+
+    @include tablets{
+        margin-bottom: 80px;
+    }
 
     img{
         height: 160px;
@@ -422,14 +573,14 @@ h3{
 }
 
 .brand{
-    font-family: 'GothamProRegular'; 
+    font-family: 'GothamProLight'; 
     font-weight: 600;
     font-size: 26px;
     margin-bottom: 55px;
 }
 
 .brand-descr{
-    font-family: 'GothamProRegular'; 
+    font-family: 'GothamProLight'; 
     font-size: 26px;
     margin-bottom: 55px;
 } 
@@ -440,6 +591,20 @@ h3{
 
 .fourth{
     margin-bottom: 50px;
+}
+
+.opinion{
+
+    @include lap{
+        margin-bottom: 30px;
+    }
+}
+
+.opinion-left{
+
+    @include tablets{
+        margin-left: 10%;
+    }
 }
 
 .opinion-flex{
@@ -470,6 +635,10 @@ h3{
         font-size: 20px;        
         font-weight: 600;
         font-style: italic;
+
+        @include tablets{
+            text-align: center;
+        }
     }
 }
 
@@ -479,6 +648,14 @@ h3{
 
 .fifth{
     margin-bottom: 50px;
+    background: url(../img/mail.png) no-repeat;
+    background-position-x: 110%;
+    background-position-y: bottom;
+    min-height: 500px;
+
+    @include lap{
+        background: #fff;
+    }
 }
 
 .delivery{
@@ -499,6 +676,23 @@ h3{
     }
 } 
 
+.img-none-768{
+
+    @include tablets{
+        display: none;
+    }
+}
+
+.img-block-768{
+
+    display: none;
+
+     @include tablets{
+        display: block;
+        height: 150px;
+    }
+}
+
 /* FIFTH SECTION END */
 
 /* SIXTH SECTION */
@@ -506,9 +700,39 @@ h3{
 .sixth{
     margin-bottom: 50px;
     border-bottom: 3px solid #000;
+
+    @include tablets{
+        border-bottom: none;
+    }
+}
+
+.six{
+    font-size: 33px;
+    border-bottom: none;
 }
 
 .form{
+    display: flex;
+    flex-direction: column;   
+
+    input{
+        
+        height: 35px;
+        margin-bottom: 17px;
+        font-family: 'SansSerif';
+        font-size: 13px;
+        color: #828282;
+        padding-left: 10px; 
+        outline: none;
+        border-radius: 4px;
+        border: none;
+        box-shadow: 3px 6px 5px -2px rgba(217,210,217,1);
+        background: #ededed;
+
+        &:focus{
+            border: 2px solid #50524f;
+        }      
+    }
 
     span{
         text-align: center;
@@ -517,20 +741,17 @@ h3{
     }
 }
 
-.inputs{
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 0 auto;
+.btn-form{
+    text-align: center;
+}
 
-    input{
-        width: 237px;
-        height: 35px;
-        margin-bottom: 17px;
-        font-family: 'SansSerif';
-        font-size: 13px;
-        color: #828282;
-        padding-left: 10px;
+.complects{
+    font-family: 'SansSerif';
+    font-size: 30px;
+    font-weight: 300;
+
+    span{
+        font-weight: 600;
     }
 }
 
@@ -538,17 +759,41 @@ h3{
 
 /* FOOTER */
 
+.contacts{
+    text-align: center;    
+}
+
 .confidential{
     font-family: 'SansSerif';
     font-size: 10px;
+
+     @include tablets{
+       margin-bottom: 20px;
+   }
+}
+
+.footer-last{
+   
+   @include tablets{
+       margin-bottom: 20px;
+   }
 }
 
 .footer-tel{
     font-family: 'SansSerif';
+    font-weight: 600;
     font-size: 37px;    
+
+    @include lap{
+        font-size: 28px;
+    }
 }
 
 .footer-email{
-    font-family: 'GothamProRegular'; 
+    font-family: 'GothamProLight'; 
     font-size: 18px;
+
+    @include lap{
+        font-size: 14px;
+    }
 }
