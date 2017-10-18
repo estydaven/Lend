@@ -15,3 +15,11 @@ $("#phone3").mask("9(999) 999-9999");
 $("#phone4").mask("9(999) 999-9999");
 $("#phone5").mask("9(999) 999-9999");
    });
+
+$(function () {
+      var element = $("#hid"), display;
+      $(window).scroll(function () {
+        display = $(this).scrollTop() >= 250;
+        display != element.css('opacity') && element.stop().animate({ 'opacity': display }, 500);
+      });
+    });   

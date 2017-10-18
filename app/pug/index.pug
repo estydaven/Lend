@@ -22,20 +22,24 @@ block content
                                 input#togglebox(type='checkbox')
                                 label#navtoggler(for='togglebox')
                                 nav#expand-fullpagemenu
-                                    label#closex(for='togglebox') Close
+                                    label#closex(for='togglebox') 
                                     ul
                                         li
-                                            a(href='#', target='_blank') Главная
+                                            a(href='#header') Главная
                                         li
-                                            a(href='#', target='_blank') Карта сайта
+                                            a(href='#gallery') Галерея
                                         li
-                                            a(href='#', target='_blank') Мой магазин
+                                            a(href='#katalog') Каталог
                                         li
-                                            a(href='#', target='_blank') Электронные книги
+                                            a(href='#chars') Характеристики
                                         li
-                                            a(href='#', target='_blank') Служба поддержки
+                                            a(href='#func') Функционал
                                         li
-                                            a(href='#', target='_blank') Гостевая книга
+                                            a(href='#reviews') Отзывы
+                                        li
+                                            a(href='#delivery') Доставка и оплата
+                                        li
+                                            a(href='#faq') Гарантия       
                                 br
                                 span.span
                                     a(href='#', onclick="expandfullscreenmenu('open')") Открыть меню
@@ -43,6 +47,9 @@ block content
                                     a(href='#', onclick='expandfullscreenmenu()') Открыть меню
                                     br
                                     a(href='#', onclick="expandfullscreenmenu('close')") Открыть меню
+            #hid
+                input#togglebox(type='checkbox')
+                label#navtoggler(for='togglebox', style='top:4px;left:10px;margin-top:0px;')                                       
         section.header-center
             .container
                 .row
@@ -257,7 +264,13 @@ block content
                         p
                             | Если нет возможности отправить Вам заказ курьером, мы отправим его ПОЧТОЙ РФ первым классом.
                         p
-                            | Срок доставки от 7 до 14 дней, в зависимости от региона, стоимость по РФ 350 руб.
+                            | Срок доставки от 
+                            b 7 
+                            | до 
+                            b 14 
+                            | дней, в зависимости от региона, стоимость по РФ 
+                            b 350 
+                            | руб.
                         p
                             | Мы являемся крупным федеральным клиентом почты России и поэтому у вас не будет комиссии на почте.
             .row
@@ -268,8 +281,16 @@ block content
                     .delivery-text
                         p
                             | Доставка осуществляется до вашей двери в любом городе России курьерской компанией Usend.
-                        p Срок доставки от 2 до 7 дней, в зависимости от региона.
-                        p Cтоимость по РФ 350 руб.      
+                        p 
+                            | Срок доставки от 
+                            b 2 
+                            | до 
+                            b 7 
+                            | дней, в зависимости от региона.
+                        p 
+                            | Cтоимость по РФ 
+                            b 350 
+                            | руб.      
     section.sixth
         .container
             h2.six Успейте заказать недельный мужской набор Ck

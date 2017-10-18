@@ -70,6 +70,10 @@ p {
 .header {
   width: 100%;
   min-height: 630px;
+
+  @include tablets{
+    min-height: auto;
+  }
 }
 
 .header-logo {
@@ -257,6 +261,7 @@ label#navtoggler {
   border: 0.6em solid #000;
   border-width: 0.6em 0;
   cursor: pointer;
+  
   &::before {
     /* inner strip inside label */
     content: "";
@@ -267,7 +272,7 @@ label#navtoggler {
     top: 50%;
     margin-top: -0.3em;
     left: 0;
-    background: black;
+    background: #000;
     /* stripes background color. Change to match border color of parent label above */
   }
 }
@@ -280,30 +285,28 @@ nav#expand-fullpagemenu {
   left: 0;
   visibility: hidden;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transform: scale(0.9);
   /* initially scale down nav size */
-  -ms-transform: scale(0.9);
   transform: scale(0.9);
-  background: #AAEDEA;
+  background: #cc1000;
   display: block;
   position: fixed;
-  z-index: 100;
+  z-index: 5002;
   opacity: 0;
   text-align: center;
   overflow: auto;
+  -moz-transition: visibility 0s 0.5s, opacity 0.5s, -moz-transform 0.5s;
   /* transition settings */
   -webkit-transition: visibility 0s 0.5s, opacity 0.5s, -webkit-transform 0.5s;
-  transition: visibility 0s 0.5s, opacity 0.5s, -webkit-transform 0.5s;
   transition: visibility 0s 0.5s, opacity 0.5s, transform 0.5s;
-  transition: visibility 0s 0.5s, opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
 }
 
 input[type="checkbox"]#togglebox:checked ~ nav#expand-fullpagemenu {
   /* nav state when corresponding checkbox is checked */
   visibility: visible;
   -webkit-transform: scale(1);
-  -ms-transform: scale(1);
   transform: scale(1);
   opacity: 1;
   -ms-transition-delay: 0s;
@@ -315,16 +318,15 @@ input[type="checkbox"]#togglebox:checked ~ nav#expand-fullpagemenu {
 nav {
   &#expand-fullpagemenu label#closex {
     /* Large x close button inside nav */
-    width: 80px;
-    height: 80px;
-    overflow: hidden;
     display: block;
+    width: 24px;
+    height: 24px;
     position: absolute;
-    cursor: pointer;
-    text-indent: -1000px;
+    top: 20px;
+    right: 20px;
+    opacity: 0.7;
     z-index: 10;
-    top: 0;
-    right: 0;
+    cursor: pointer;
     &::before {
       /* render large cross inside close button */
       content: "";
@@ -363,7 +365,7 @@ nav {
     }
     a {
       text-decoration: none;
-      color: black;
+      color: #fff;
       text-transform: uppercase;
     }
     ul {
@@ -376,23 +378,33 @@ nav {
       /* center UL vertically inside nav */
       -webkit-transform: translateY(-50%);
       /* center UL vertically inside nav */
-      -ms-transform: translateY(-50%);
       transform: translateY(-50%);
-      font: bold 2em 'Bitter', sans-serif;
+      font: 18px/22px 'Open Sans';
       /* use google font inside nav UL */
       li {
         margin-bottom: 25px;
+        display: inline-block;
+        vertical-align: top;
         a {
           padding: 10px;
-          -webkit-border-radius: 20px;
           border-radius: 20px;
-          &:hover {
-            background: lightblue;
+          &:hover, &:active {
+            color: #ffbf00;
           }
         }
       }
     }
   }
+}
+
+#hid {
+  width: 100%;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  position: fixed;
+  top: 0px;
+  z-index: 5001;
 }
 
 .span {
@@ -408,7 +420,7 @@ nav {
 
 @media (max-width: 768px) {
   .header-center {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding-bottom: 0px;
   }
 }
@@ -505,22 +517,33 @@ nav {
   font-weight: bold;
 }
 
+input{
+  outline: none;
+}
+
 .btn {
   width: 295px;
-  height: 80px;
-  background: url(../img/button.png) no-repeat;
+  height: 95px;
+  background: url(../img/static.png) no-repeat;
   background-size: cover;
+  outline: none;
   &:hover {
-    background: url(../img/button-h.png) no-repeat;
+    background: url(../img/hover.png) no-repeat;
     background-size: cover;
     color: transparent;
     cursor: pointer;
+    outline: none;
+  }
+  &:focus{
+    background: url(../img/focus.png) no-repeat;
+    background-size: cover;
+    outline: none;
   }
 }
 
 .btn_bottom {
   width: 224px;
-  height: 55px;
+  height: 75px;
   font-size: 20px;
 }
 
@@ -566,7 +589,7 @@ nav {
 }
 
 h2 {
-  font-family: 'GothamProLight';
+  font-family: 'GothamProRegular';
   text-align: center;
   font-size: 26px;
   padding-top: 50px;
@@ -708,8 +731,7 @@ h3 {
 /* FOURTH SECTION END*/
 /* FIFTH SECTION */
 
-.fifth {
-  margin-bottom: 50px;
+.fifth {  
   background: url(../img/mail.png) no-repeat;
   background-position-x: 110%;
   background-position-y: bottom;

@@ -50,6 +50,9 @@ p {
 .header {
   width: 100%;
   min-height: 630px; }
+  @media (max-width: 768px) {
+    .header {
+      min-height: auto; } }
 
 .header-logo {
   padding-top: 40px;
@@ -202,7 +205,7 @@ label#navtoggler {
     top: 50%;
     margin-top: -0.3em;
     left: 0;
-    background: black;
+    background: #000;
     /* stripes background color. Change to match border color of parent label above */ }
 
 nav#expand-fullpagemenu {
@@ -217,11 +220,11 @@ nav#expand-fullpagemenu {
   -webkit-transform: scale(0.9);
   /* initially scale down nav size */
   -ms-transform: scale(0.9);
-  transform: scale(0.9);
-  background: #AAEDEA;
+      transform: scale(0.9);
+  background: #cc1000;
   display: block;
   position: fixed;
-  z-index: 100;
+  z-index: 5002;
   opacity: 0;
   text-align: center;
   overflow: auto;
@@ -236,7 +239,7 @@ input[type="checkbox"]#togglebox:checked ~ nav#expand-fullpagemenu {
   visibility: visible;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
-  transform: scale(1);
+      transform: scale(1);
   opacity: 1;
   -ms-transition-delay: 0s;
   -moz-transition-delay: 0s;
@@ -245,16 +248,15 @@ input[type="checkbox"]#togglebox:checked ~ nav#expand-fullpagemenu {
 
 nav#expand-fullpagemenu label#closex {
   /* Large x close button inside nav */
-  width: 80px;
-  height: 80px;
-  overflow: hidden;
   display: block;
+  width: 24px;
+  height: 24px;
   position: absolute;
-  cursor: pointer;
-  text-indent: -1000px;
+  top: 20px;
+  right: 20px;
+  opacity: 0.7;
   z-index: 10;
-  top: 0;
-  right: 0; }
+  cursor: pointer; }
   nav#expand-fullpagemenu label#closex::before {
     /* render large cross inside close button */
     content: "";
@@ -291,7 +293,7 @@ nav#expand-fullpagemenu label#closex::after {
 
 nav#expand-fullpagemenu a {
   text-decoration: none;
-  color: black;
+  color: #fff;
   text-transform: uppercase; }
 
 nav#expand-fullpagemenu ul {
@@ -305,17 +307,28 @@ nav#expand-fullpagemenu ul {
   -webkit-transform: translateY(-50%);
   /* center UL vertically inside nav */
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  font: bold 2em 'Bitter', sans-serif;
+      transform: translateY(-50%);
+  font: 18px/22px 'Open Sans';
   /* use google font inside nav UL */ }
   nav#expand-fullpagemenu ul li {
-    margin-bottom: 25px; }
+    margin-bottom: 25px;
+    display: inline-block;
+    vertical-align: top; }
     nav#expand-fullpagemenu ul li a {
       padding: 10px;
       -webkit-border-radius: 20px;
-      border-radius: 20px; }
-      nav#expand-fullpagemenu ul li a:hover {
-        background: lightblue; }
+              border-radius: 20px; }
+      nav#expand-fullpagemenu ul li a:hover, nav#expand-fullpagemenu ul li a:active {
+        color: #ffbf00; }
+
+#hid {
+  width: 100%;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  position: fixed;
+  top: 0px;
+  z-index: 5001; }
 
 .span {
   display: none; }
@@ -327,7 +340,7 @@ nav#expand-fullpagemenu ul {
 
 @media (max-width: 768px) {
   .header-center {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding-bottom: 0px; } }
 
 @media (max-width: 768px) {
@@ -400,20 +413,29 @@ nav#expand-fullpagemenu ul {
   color: #ca2828;
   font-weight: bold; }
 
+input {
+  outline: none; }
+
 .btn {
   width: 295px;
-  height: 80px;
-  background: url(../img/button.png) no-repeat;
-  background-size: cover; }
+  height: 95px;
+  background: url(../img/static.png) no-repeat;
+  background-size: cover;
+  outline: none; }
   .btn:hover {
-    background: url(../img/button-h.png) no-repeat;
+    background: url(../img/hover.png) no-repeat;
     background-size: cover;
     color: transparent;
-    cursor: pointer; }
+    cursor: pointer;
+    outline: none; }
+  .btn:focus {
+    background: url(../img/focus.png) no-repeat;
+    background-size: cover;
+    outline: none; }
 
 .btn_bottom {
   width: 224px;
-  height: 55px;
+  height: 75px;
   font-size: 20px; }
 
 /* HEADER END */
@@ -446,7 +468,7 @@ nav#expand-fullpagemenu ul {
   width: 100%; }
 
 h2 {
-  font-family: 'GothamProLight';
+  font-family: 'GothamProRegular';
   text-align: center;
   font-size: 26px;
   padding-top: 50px;
@@ -557,7 +579,6 @@ h3 {
 /* FOURTH SECTION END*/
 /* FIFTH SECTION */
 .fifth {
-  margin-bottom: 50px;
   background: url(../img/mail.png) no-repeat;
   background-position-x: 110%;
   background-position-y: bottom;
