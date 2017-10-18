@@ -50,7 +50,7 @@ block content
             .container
                 .row
                     .col-lg-6.col-md-6.col-sm-6
-                        img.img-fluid(src='./img/man-1.png')
+                        img.img-fluid.img-title(src='./img/man-1.png')
                     .col-lg-6.col-md-6.col-sm-6
                         .center-right
                             .center-image
@@ -60,19 +60,19 @@ block content
                                     span.center-span Calvin Klein
                         .center-content
                             .row
-                                .col
+                                .col-lg-4.col-md-4.col-sm-4
                                     .content-item
                                         .item-pic
                                             img.img-responsive(src='./img/ok.png')
                                         .item-text
                                             p 100% гарантия качества                                   
-                                .col
-                                    .content-item
+                                .col-lg-4.col-md-4.col-sm-4
+                                    .content-item.content-item_right
                                         .item-pic
                                             img.img-responsive(src='./img/money.png')
                                         .item-text
                                             p оплата при получении
-                                .col
+                                .col-lg-4.col-md-4.col-sm-4
                                     .item-pic
                                         img.img-responsive(src='./img/delivery.png')
                                     .item-text
@@ -298,10 +298,11 @@ block content
             .row
                 .col-lg-6.col-md-6.col-sm-12.col-xs-12
                     .slider
-                        img(src='./img/man-2.png')
-                        img(src='./img/man-2.png')
-                        img(src='./img/man-2.png')
-                        img(src='./img/man-2.png')
+                        img(src='./img/1.png')
+                        img(src='./img/2.png')
+                        img(src='./img/3.png')
+                        img(src='./img/4.png')
+                        img(src='./img/5.png')
                 .col-lg-4.col-md-6.col-sm-12.col-xs-12
                     form.form(action='https://borisovden.e-autopay.com/checkout/save_order_data.php', method='post', target='_blank', onsubmit="var re = /^((8|+7|7)[- ]?)?((?d{3})?[- ]?)[d- ]{7,10}$/i; if(!re.test(this.phone.value.trim())) {alert('Пожалуйста проверьте правильность заполнения поля Телефон!'); return false;}else{ga('send', 'event', 'send', 'click', 'send', '1');")
                         input.name.hidden-xs.hidden-sm(type='text', name='name', placeholder='ИМЯ')

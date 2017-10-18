@@ -431,6 +431,10 @@ nav {
   }
 }
 
+.img-title{
+  margin-top: 3%;
+}
+
 .center-content {
   border: 5px solid #d4d9db;
   padding: 10px;
@@ -457,6 +461,11 @@ nav {
 
 .content-item {
   border-right: 1px solid #c1c1c4;
+  height: 100%;
+
+  &_right{
+    padding-right: 15px;
+  }
 }
 
 .item-pic {
@@ -834,6 +843,20 @@ h3 {
     text-align: center;
     font-family: 'SansSerif';
     font-size: 16px;
+  }
+}
+
+.name{
+
+  @include tablets{
+    display: none;
+  }
+}
+
+.address{
+
+  @include tablets{
+    display: none;
   }
 }
 
