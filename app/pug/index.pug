@@ -25,19 +25,16 @@ block content
                                     label#closex(for='togglebox') 
                                     ul
                                         li
-                                            a(href='#header') Главная
+                                            a(href='#header' onclick="expandfullscreenmenu('close')") Главная                                        
                                         li
-                                            a(href='#gallery') Галерея
+                                            a(href='#katalog' onclick="expandfullscreenmenu('close')") Каталог
                                         li
-                                            a(href='#katalog') Каталог
+                                            a(href='#chars' onclick="expandfullscreenmenu('close')") Характеристики                                        
                                         li
-                                            a(href='#chars') Характеристики                                        
+                                            a(href='#reviews' onclick="expandfullscreenmenu('close')") Отзывы
                                         li
-                                            a(href='#reviews') Отзывы
-                                        li
-                                            a(href='#delivery') Доставка и оплата
-                                        li
-                                            a(href='#faq') Гарантия       
+                                            a(href='#delivery' onclick="expandfullscreenmenu('close')") Доставка и оплата
+                                            
                                 br
                                 span.span
                                     a(href='#', onclick="expandfullscreenmenu('open')") Открыть меню
@@ -198,7 +195,7 @@ block content
                         p 249 р/шт.  
                         input.btn.btn_bottom(type='submit', value='')
     section.third
-        a(name='#chars')
+        a(name='chars')
         .container
             h2 Характеристика трусов
             .row
@@ -217,7 +214,7 @@ block content
                         li Модель выполнена из хлопкового трикотажа.
                         li Делати: эластичный пояс с жаккардовой надписью-логотипом.
     section.fourth
-        a(name='#reviews')
+        a(name='reviews')
         .container
             h2 Отзывы наших клиентов
             .row
@@ -255,7 +252,7 @@ block content
                             p
                                 | Заказывала трусы мужу. Сегодня получила посылку и не разочаровалась. Посылка дошла быстро, всего за 1 день. Качество трусов отличное, очень порадовали. Спасибо Вам большое:)))
     section.fifth
-        a(name='#delivery')
+        a(name='delivery')
         .container
             h2 Доставка и оплата
             .row
