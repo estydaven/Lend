@@ -439,7 +439,8 @@ input {
   .btn:focus {
     background: url(../img/focus.png) no-repeat;
     background-size: cover;
-    outline: none; }
+    outline: none;
+box-shadow: none;	}
 
 .btn_bottom {
   width: 224px;
@@ -704,7 +705,9 @@ h3 {
 
 .confidential {
   font-family: 'SansSerif';
-  font-size: 10px; }
+  font-size: 13px;
+  font-weight: bold;
+  }
 
 @media (max-width: 768px) {
   .confidential {
